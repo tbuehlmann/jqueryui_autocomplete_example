@@ -1,0 +1,19 @@
+%h1 Listing movies
+%form{:action => movies_path, :method => :get}
+  = text_field_tag('search', params[:search], :id => 'autocomplete')
+  = submit_tag('Search', :name => nil)
+%p= link_to('New Movie', new_movie_path)
+%table
+  %tr
+    %th Name
+    %th
+    %th
+    %th
+  - @movies.each do |movie|
+    %tr
+      %td= movie.name
+      %td= link_to('Show', movie)
+      %td= link_to('Edit', edit_movie_path(movie))
+      %td= link_to('Destroy', movie, :confirm => 'Are you sure?', :method => :delete)
+%p= paginate @movies
+
