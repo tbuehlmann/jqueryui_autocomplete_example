@@ -1,6 +1,6 @@
 $(function() {
   $('#autocomplete').autocomplete({
-    source: '/movies.js'
+    source: '/movies/autocomplete'
   });
 });
 
