@@ -55,7 +55,7 @@ class MoviesController < ApplicationController
     #
     # in this case we grab all movies that begin with the typed term and
     # rename the name attribute to value for convenience
-    movies = Movie.select('name as value').where('name LIKE ?', "#{params[:term]}%")
+    movies = Movie.select('name AS value').where('name LIKE ?', "#{params[:term]}%")
     render :json => movies.to_json
   end
 end
